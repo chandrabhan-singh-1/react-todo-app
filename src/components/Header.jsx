@@ -9,6 +9,13 @@ import logo from "../assets/todo_icon_3.png";
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
+  const [refresh, setRefresh] = useState(false);
+
+  const refreshHandler = () => {
+    setRefresh((prev) => !prev);
+  };
+
+  useEffect(() => {}, [refresh]);
 
   // console.log(data);
 
@@ -40,7 +47,9 @@ const Header = () => {
         </div>
         <article>
           <Link to={"/"}>Home</Link>
-          <Link to={"/profile"}>Profile</Link>
+          <Link to={"/profile"} onClick={refreshHandler}>
+            Profile
+          </Link>
           {isAuthenticated ? (
             <button disabled={loading} onClick={logoutHandler} className="btn">
               Logout
