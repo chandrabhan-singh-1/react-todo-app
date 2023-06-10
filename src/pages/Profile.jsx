@@ -4,15 +4,8 @@ import Loader from "../components/Loader";
 import { Navigate } from "react-router-dom";
 
 export const ProfileDetails = ({ user }) => {
-  const [refresh, setRefresh] = useState(false);
-
-  const refreshHandler = () => {
-    setRefresh((prev) => !prev);
-  };
-
-  useEffect(() => {}, [refresh]);
   return (
-    <div className="profileDetails" onLoad={refreshHandler}>
+    <div className="profileDetails">
       <p>
         <b>Name - </b>
         <h1>{user?.name}</h1>
