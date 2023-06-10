@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { Context, server } from "../main";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import logo from "../../public/todo_icon_3.png";
+import logo from "../assets/todo_icon_3.png";
 
 const Header = () => {
   const { isAuthenticated, setIsAuthenticated, loading, setLoading } =
     useContext(Context);
+
   // console.log(data);
 
   const logoutHandler = async (e) => {

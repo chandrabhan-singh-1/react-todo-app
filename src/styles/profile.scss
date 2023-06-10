@@ -1,0 +1,29 @@
+.profileDetails {
+  height: 100vh;
+  margin: 2rem 7rem;
+  padding: 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: rgb(160, 243, 204);
+  border-radius: 10px;
+
+  >p>h1 {
+    margin-left: 2rem;
+  }
+
+  >.email {
+    font-style: italic;
+    margin-left: 2rem;
+  }
+
+  >.lorem {
+    margin-left: 2rem;
+  }
+
+}
+
+b {
+  font-weight: 700;
+}

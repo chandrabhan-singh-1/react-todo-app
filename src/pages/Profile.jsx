@@ -1,22 +1,42 @@
-import React, { useContext } from "react";
-import { Context } from "../main";
+import React, { useContext, useEffect, useState } from "react";
+import { Context, server } from "../main";
 import Loader from "../components/Loader";
 import { Navigate } from "react-router-dom";
 
+export const ProfileDetails = ({ user }) => {
+  const [refresh, setRefresh] = useState(false);
+
+  const refreshHandler = () => {
+    setRefresh((prev) => !prev);
+  };
+
+  useEffect(() => {}, [refresh]);
+  return (
+    <div className="profileDetails" onChange={refreshHandler}>
+      <p>
+        <b>Name - </b>
+        <h1>{user?.name}</h1>
+      </p>
+
+      <b>Email - </b>
+      <p className="email">{user?.email}</p>
+      <b>Description-</b>
+      <p className="lorem">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error
+        laudantium iusto, dolorum sit facere est laboriosam, a incidunt sequi ad
+        ex neque eligendi mollitia necessitatibus, voluptatem fugiat? Odit,
+        incidunt obcaecati.
+      </p>
+    </div>
+  );
+};
+
 const profile = () => {
   const { isAuthenticated, loading, user } = useContext(Context);
-  // console.log(user);
 
   if (!isAuthenticated) return <Navigate to={"/login"} />;
 
-  return loading ? (
-    <Loader />
-  ) : (
-    <div>
-      <h1>{user?.name}</h1>
-      <p>{user?.email}</p>
-    </div>
-  );
+  return loading ? <Loader /> : <ProfileDetails user={user} />;
 };
 
 export default profile;
