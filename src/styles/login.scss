@@ -1,0 +1,26 @@
+.login>section {
+  @include container (900px, unset, 2rem);
+  min-height: 80%;
+  background-color: $color2;
+
+  >form {
+    @include flexBox(column, center, flex-start, 2rem);
+    @include inputs;
+
+    >button {
+      margin-top: 2rem;
+      @include styledText(1.1rem);
+      @include myButton(18.75rem, 1rem);
+    }
+
+    >a {
+      font: 400 1.2rem $text1;
+      text-decoration: underline;
+      color: $color6;
+
+      &:hover {
+        color: $color5;
+      }
+    }
+  }
+}

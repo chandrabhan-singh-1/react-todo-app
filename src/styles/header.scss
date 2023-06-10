@@ -1,0 +1,42 @@
+.header {
+  background-color: $color3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  width: 100%;
+  color: $color6;
+
+  >div {
+    @include myButton(15rem, 0.5rem);
+
+    >a {
+      display: flex;
+
+      img {
+        width: 30px;
+        height: 30px;
+        margin-top: 4px;
+        margin-right: 10px;
+      }
+
+      h2 {
+        text-transform: uppercase;
+        // color: $color6;
+        font-weight: 500;
+      }
+    }
+  }
+
+
+  >article {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    >a {
+      @include styledText;
+      @include myButton;
+    }
+  }
+}
