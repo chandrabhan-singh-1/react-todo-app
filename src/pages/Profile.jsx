@@ -12,7 +12,7 @@ export const ProfileDetails = ({ user }) => {
 
   useEffect(() => {}, [refresh]);
   return (
-    <div className="profileDetails" onChange={refreshHandler}>
+    <div className="profileDetails" onLoad={refreshHandler}>
       <p>
         <b>Name - </b>
         <h1>{user?.name}</h1>
